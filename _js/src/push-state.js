@@ -30,6 +30,7 @@ import 'core-js/fn/string/includes';
 // We include our main component, hy-push-state,
 // in both the vanilla JS and the WebComponent version (will decide later which one to use).
 // Since they share most of their code, it's not a big deal in terms of file size.
+import { Set } from 'hy-push-state/src/common';
 import { PushState, VANILLA_FEATURE_TESTS } from 'hy-push-state/src/vanilla';
 import { HTMLPushStateElement } from 'hy-push-state/src/webcomponent';
 
@@ -68,7 +69,7 @@ import setupFLIP from './flip';
 
 // ## Constants
 // A list of Modernizr feature tests that are required for the push state feature to work.
-const REQUIREMENTS = [
+const REQUIREMENTS = new Set([
   ...VANILLA_FEATURE_TESTS,
   'classlist',
   'cssanimations',
@@ -80,8 +81,7 @@ const REQUIREMENTS = [
   'opacity',
   'queryselector',
   'requestanimationframe',
-  'template',
-];
+]);
 
 const REPLACE_IDS = '_main';
 const LINK_SELECTOR = 'a[href]:not(.external):not(.no-push-state)';
@@ -93,7 +93,7 @@ const DURATION = 250;
 const FADE_DURATION = 600;
 
 // Time a user has to stay on the site before we send word to Google Analytics.
-const GA_DELAY = 1000;
+const GA_DELAY = 500;
 
 // Details of the fade-out animation.
 const FADE_OUT = [
@@ -142,7 +142,7 @@ function subscribe(ne, er, co) {
     .subscribe(ne, er, co);
 }
 
-// Set up the DOM node used for animations.
+// Set up the DOM elements:
 function setupAnimationMain(pushStateEl) {
   const template = document.getElementById('_animation-template');
   const animationMain = document.importNode(template.content, true);
@@ -150,7 +150,6 @@ function setupAnimationMain(pushStateEl) {
   return pushStateEl.previousElementSibling;
 }
 
-// Some more helper functions:
 function setupLoading(navbarEl) {
   const template = document.getElementById('_loading-template');
   const loading = document.importNode(template.content, true);
@@ -300,7 +299,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     // * Add the `active` class to the active entry in the sidebar (currently not in use)
     // * If we are going to animate the content, make some preparations.
     ::tap(({ type, main }) => {
-      if (!window._isDesktop && window._drawer.opened) {
+      if (!window._isDesktop && window._drawer && window._drawer.opened) {
         window._drawer.close();
       }
 
@@ -411,9 +410,11 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     ::tap(upgradeMathBlocks)
 
     // Finally, after some debounce time, send a `pageview` to Google Analytics (if applicable).
+    ::filter(() => !!window.ga)
     ::debounceTime(GA_DELAY)
     ::subscribe(() => {
-      if (window.ga) window.ga('send', 'pageview', window.location.pathname);
+      window.ga('set', 'page', window.location.pathname);
+      window.ga('send', 'pageview');
     });
 
   // ### Show error page

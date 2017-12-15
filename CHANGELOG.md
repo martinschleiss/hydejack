@@ -3,6 +3,139 @@ layout: page
 title: CHANGELOG
 ---
 
+## v7.4.2
+Dec 1 2017
+{:.heading.post-date}
+
+### Fixed
+* Dramatically improved resume print layout.
+  It is now much less likely that there will be page breaks within logical units.
+* Fixed a bug that cause the page to break when setting `no_drawer`.
+* Fixed a bug that cased the "Random Posts" heading to appear, even when there are no posts to show
+
+## v7.4.1
+Nov 27 2017
+{:.heading.post-date}
+
+### Fixed
+* Fixed storing user-related data before accepting cookies.
+* Fixed tab order of cookie banner, so keyboard users can access it more easily.
+* Accepting cookies no longer causes a page reload in some browsers.
+* Fixed appearance of the okay button in the free version.
+* Menu icon now useable while the cookies banner is active.
+* Loading icon is now visible while the cookies banner is active.
+* Removed cookies banner from print layout.
+* Removed inline styles from cookie banner.
+
+## v7.4.0
+Nov 25 2017
+{:.heading.post-date}
+
+### Added
+* Allow markdown in copyright string
+* Added `theme_color` front-matter property to micro-manage the value of the the `theme-color` meta tag.
+  When not set, will use `accent_color`.
+* Added `theme_color` site setting, to set the value of `themeColor` in the app manifest.
+  When not set, will use `accent_color`.
+* Added `cookies_banner` setting:
+
+  ~~~yml
+  # file: _config.yml
+  hydejack:
+    cookies_banner: true
+  ~~~
+
+  Enabling this setting will show a notice at the top of the page to new visitors.
+  You can change the wording of the notice in `_data/strings.yml`
+  with the `cookies_banner.text` and `cookies_banner.okay` keys:
+
+  ~~~yml
+  # file: _data/strings.yml
+  cookies_banner:
+    text: This site uses cookies.
+    okay: Okay
+  ~~~
+
+### Fixed
+* Drawer no longer resizes/repaints in iOS Safari (iPhone) and Chrome for Android when the address bar autohides.
+* Fixed a bug that caused the drawer flicker/open unexpectedly when scrolling in mobile browsers.
+* Fixed how `image` works when using the `jekyll-seo-tag` plugin.
+
+### Design
+* Changed how line breaks work in resume layout
+* Changed margins of horizontals lines
+
+### Other
+* Updated docs
+* Updated posts
+
+
+## v7.3.0
+Nov 17 2017
+{:.heading.post-date}
+
+### Added
+* Allow markdown content on `projects` layout.
+* Renamed `big_project` option on projects to `featured` (`big_project` still works)
+
+### Fixed
+* Fixed default font weights
+* Fixed hard-coded `/projects/` URL in project layout
+* Link to feed.xml is only generated when using the `jekyll-feed` plugin
+
+
+## v7.2.0
+Nov 13 2017
+{:.heading.post-date}
+
+### Added
+* Added `_sass/my-variables.scss` file, which you can use to selectively override SCSS variables.
+* Font weights can now be configured via SCSS variables:
+  * `$font-weight` for normal font.
+  * `$font-weight-bold` for `strong` tags and similar.
+  * `$font-weight-heading` for headings.
+
+### Design
+* Message boxes will no longer span the full width, even with the break layout feature enabled.
+* Increased space between project card rows, so they look less like a brick wall.
+
+### Fixes
+* Reduced the draw range of the drawer on iOS, so that a larger portion of the screen is available for zooming (a11y).
+* Default images are now optimized, so they are no longer flagged by Google PageSpeed Insights and similar tools.
+* Query parameters are no longer used for cache busting.
+  Instead, the version number is no part of the file name for the CSS and JS resources.
+
+
+## v7.1.1
+Nov 3 2017
+{:.heading.post-date}
+
+### Fixes
+* Fix IE11 feature detection
+
+## v7.1.0
+Nov 2 2017
+{:.heading.post-date}
+
+### Changed
+* Renamed `no_description` to `hide_description`.
+  Since this feature isn't yet documented outside of the change log, the old name *will not* continue to work.
+* When providing images to `image`, `image.path`, `image.src`, `image.srcset` and `accent_image `,
+  it is no longer necessary to prepend the url with the `baseurl` of the site,
+  e.g. values like `accent_image: /assets/img/sidebar-bg.jpg` are now valid.
+* Limited scope of `a` and `img` styles to content areas.
+* Upgraded KaTeX to v0.8.3
+* Upgraded `jekyll-relative-links` to v5.0.1
+
+### Fixes
+* `font` and `font_heading` are now properly set when using the `no_inline_css` option [#47](https://github.com/qwtel/hydejack/issues/47).
+* Fixed default values for `image` and `logo` that were referring to non-existing images.
+* Added missing JS dev dependencies.
+
+### Content
+* Updated documentation
+* Updated index, download, about and README pages.
+
 ## v7.0.1
 Oct 27 2017
 {:.heading.post-date}
@@ -10,10 +143,12 @@ Oct 27 2017
 ### Fixes
 * Removed readme files from `assets` that would show up as pages when building on GitHub Pages [#42](https://github.com/qwtel/hydejack/issues/42).
 * Disabled push state on Firefox for iOS
-
-### Other
-* Updated documentation
 * Changed some default settings in `_config.yml`
+
+### Content
+* Updated documentation
+
+## Removed
 * Removed outdated example script in `my-scripts.html`
 
 ## v7.0.0
@@ -59,7 +194,7 @@ That being said, you should be aware of these (small) breaking changes:
 * Event names described in the scripting chapter have changed from `y-push-state-*` to `hy-push-state-*`,
   except `y-push-state-animationend`, which has been removed. See the [docs][pstate] for more.
 
-[pstate]: docs/7.0.1/scripts.md#registering-push-state-event-listeners
+[pstate]: docs/7.4.2/scripts.md#registering-push-state-event-listeners
 
 ### Changes
 * `image` has been renamed to `accent_image`, but `image` continues to work unless you add the `jekyll-seo-tag` plugin.
@@ -212,7 +347,7 @@ That being said, you should be aware of these (small) breaking changes:
 * Added an error page that is shown when client-side network errors occur. It contains a link to retry loading the page.
   Previously, the browser's default error page would have been shown.
 
-* Added `no_description` option to pages to prevent the content of `description` fields to show up in the output.
+* Added `hide_description` option to pages to prevent the content of `description` fields to show up in the output.
   This allows you to use the `description` field in the front matter to set descriptions for search engines and sharing on social media,
   without having to worry about the output.
 
@@ -223,7 +358,7 @@ That being said, you should be aware of these (small) breaking changes:
     - scope:
         path: ''
       values:
-        no_description: true
+        hide_description: true
   ```
 
 * Added a new option called `no_inline_css`.
@@ -258,7 +393,7 @@ That being said, you should be aware of these (small) breaking changes:
 * Reduced building time during development.
   Roughly 50% of the time was spent rebuilding the inline CSS, which is now built once and included via `link` tag.
   Production builds still inlines CSS, so the building speed remains unchanged.
-  For more on how to improve building speeds, [see here](docs/7.0.1/writing.md#a-word-on-building-speeds).
+  For more on how to improve building speeds, [see here](docs/7.4.2/writing.md#a-word-on-building-speeds).
 
 ### Design
 * The default background image is no longer anti-selling the theme...
@@ -696,9 +831,9 @@ Oct 15 2013
 {:.heading.post-date}
 
 [tag]: http://www.minddust.com/post/tags-and-categories-on-github-pages/
-[migration]: docs/7.0.1/migration.md
-[writing]: docs/7.0.1/writing.md
-[scripts]: docs/7.0.1/scripts.md
+[migration]: docs/7.4.2/migration.md
+[writing]: docs/7.4.2/writing.md
+[scripts]: docs/7.4.2/scripts.md
 
 [buy]: https://app.simplegoods.co/i/AQTTVBOE
 [PRO-license]: licenses/PRO.md

@@ -14,9 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-// ## Overview
-// TODO
-
 // ## Includes
 // First, we patch the environment with some ES6+ functions we intend to use.
 import 'core-js/fn/function/bind';
@@ -24,25 +21,25 @@ import 'core-js/fn/function/bind';
 // We include our main component, hy-drawer,
 // in both the vanilla JS and the WebComponent version (will decide later which one to use).
 // Since they share most of their code, it's not a big deal in terms of file size.
+import { Set } from 'hy-drawer/src/common';
 import { Drawer, VANILLA_FEATURE_TESTS } from 'hy-drawer/src/vanilla';
 import { HTMLDrawerElement } from 'hy-drawer/src/webcomponent';
 
 // Next, we include `Observable` and the RxJS functions we inted to use on it.
 import { Observable } from 'rxjs/Observable';
-import { debounceTime } from 'rxjs/operator/debounceTime';
 import { fromEvent } from 'rxjs/observable/fromEvent';
 
 // And some of our own helper functions/constants.
 import { hasFeatures, isSafari, isMobileSafari, isUCBrowser } from './common';
 
 // A list of Modernizr tests that are required for the drawer to work.
-const REQUIREMENTS = [
+const REQUIREMENTS = new Set([
   ...VANILLA_FEATURE_TESTS,
   'cssremunit',
   'classlist',
   'eventlistener',
   'matchmedia',
-];
+]);
 
 // HACK: hard-coded SCSS break-point.
 const MEDIA_QUERY = '(min-width: 64em)';
@@ -71,7 +68,7 @@ function menuClickClallback(e) {
 // so we ignore the first 35 pixels (roughly the range for the native guesture).
 function getRange() {
   if (isMobileSafari && !navigator.standalone) {
-    return [35, 150];
+    return [35, 135];
   }
   return [0, 150];
 }
@@ -148,6 +145,5 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
 
   // Adding the resize callback to the resize event, but with a small delay.
   Observable::fromEvent(window, 'resize', { passive: true })
-    ::debounceTime(100)
     .subscribe(resizeCallback);
 }
