@@ -8,7 +8,13 @@
       <li>
         <a
           {% if forloop.first %}id="_navigation"{% endif %}
+
+          {% if node.external %}
+          href="{{ node.external }}"
+          {% else %}
           href="{{ node.url | relative_url }}"
+          {% endif %}
+
           class="sidebar-nav-item{% if page.url contains node.url %} active{% endif %}"
           {% if path.rel %}rel="{{ node.rel }}"{% endif %}
           >

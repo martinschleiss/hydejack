@@ -27,14 +27,11 @@ title:                 Hydejack
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  A Jekyll theme with JavaScript powers. "Best Theme by a Mile".
-  Combines the best of static sites and modern web apps.
-  Open `_config.yml` to edit this text.
+  Hydejack is a blazingly fast Jekyll theme combining the best of static sites and modern web apps for best in class SEO.
 
 # A shorter description for the sidebar.
 tagline:               >
-  A Jekyll theme with JavaScript powers.
-  Open `_config.yml` to edit this text.
+  Hydejack helps content creators focus on making content and enjoy the effects of good SEO while having a mobile web app like experience.
 
 # A list of keywords for your blog
 keywords:              []
@@ -45,20 +42,20 @@ logo:                  /assets/icons/icon.png
 # This should be the same author as first entry in `_data/authors.yml`.
 # Duplication is necessary due to the `jekyll-feed`, `jekyll-seo-tag` plugin.
 author:
-  name:                <firstname> <lastname>
-  email:               <mail@domain.tld>
+  name:                Florian Klampfer
+  email:               mail@qwtel.com
   # Used by `jekyll-seo-tag`:
   # twitter:             <username>
 
 # This text will appear in a `<small>` tag in the footer of every page.
-copyright:             © 2017. All rights reserved.
+copyright:             © Florian Klampfer 2017. All rights reserved.
 
 # Format of the permalinks
 permalink:             pretty
 
 # Pagination configuration (used by the `blog` layout)
-paginate:              5
-paginate_path:         /page-:num/
+# paginate:              5
+# paginate_path:         /page-:num/
 
 
 # Customizaton
@@ -83,7 +80,7 @@ font_heading:          Roboto Slab, Helvetica, Arial, sans-serif
 
 # Set your Google Analytics id to receive `pageview` events.
 # To remove Google Anaylics from your page, remove the line below.
-# google_analytics:      UA-XXXXXXXX-X
+google_analytics:      UA-38014886-6
 
 # Setting a disqus shortname will enable the comment section on
 # pages with `comments: true` in the front matter.
