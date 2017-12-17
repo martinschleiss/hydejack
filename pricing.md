@@ -13,30 +13,30 @@ order: 2
 It features a blog suitable for both prose and technical documentation,
 a showcase for your projects, and a resume that is well-integrated with the design.
 
-> Your presence on the web --- A [blog], a [portfolio] and a [resume].
+> Your presence on the web --- A [blog]{:target="_blank"}, a [portfolio]{:target="_blank"} and a [resume]{:target="_blank"}.
 {:.lead}
 
 ## Download
 There are two versions of **Hydejack**: The *free version* includes basic blogging functionality,
 as did previous versions of the theme.
 The *PRO version* includes additional features for professionals:
-A [portfolio], a [resume] layout and a [welcome] page to feature your favorite projects and posts.
+A [portfolio]{:target="_blank"}, a [resume]{:target="_blank"} layout and a [welcome]{:target="_blank"} page to feature your favorite projects and posts.
 
 This table details what is and isn't included in each respective version.
 
 |                                     | Free                                   | PRO                                    |
 |:------------------------------------|:--------------------------------------:|:--------------------------------------:|
 | Blog                                | &#x2714;                               | &#x2714;                               |
-| [Features][feat]                    | &#x2714;                               | &#x2714;                               |
-| [Portfolio] Layout                  |                                        | &#x2714;                               |
-| [Resume] Layout                     |                                        | &#x2714;                               |
-| [Welcome] Layout                    |                                        | &#x2714;                               |
-| [Newsletter Box][news]              |                                        | &#x2714;                               |
-| [Custom Forms][forms]               |                                        | &#x2714;                               |
+| [Features][feat]{:target="_blank"}                    | &#x2714;                               | &#x2714;                               |
+| [Portfolio]{:target="_blank"} Layout                  |                                        | &#x2714;                               |
+| [Resume]{:target="_blank"} Layout                     |                                        | &#x2714;                               |
+| [Welcome]{:target="_blank"} Layout                    |                                        | &#x2714;                               |
+| [Newsletter Box][news]{:target="_blank"}              |                                        | &#x2714;                               |
+| [Custom Forms][forms]{:target="_blank"}               |                                        | &#x2714;                               |
 | No Hydejack Branding                |                                        | &#x2714;                               |
 | License                             | [GPL-3.0][license]                     | [PRO]                                  |
 | Price                               | Free                                   | $29                                    |
-|                                     | [**Download**][kit] or [**Fork**][git] | [**Buy Now**][buy] [^1]                |
+|                                     | [**Download**][kit]{:target="_blank"} or [**Fork**][git]{:target="_blank"} | [**Buy Now**][buy]{:target="_blank"} [^1]                |
 {:.stretch-table}
 
 ## Features
@@ -45,7 +45,7 @@ Both versions include *all* of these features:
 * Full in-app page loading, powered by [hy-push-state]{:.external}
 * A customizable sidebar that turns into a drawer menu on mobile, powered by [hy-drawer]{:.external}
 * Advanced FLIP animations, inspired by Material Design
-* Good [Google PageSpeed Score][gpss][^2]
+* Good [Google PageSpeed Score][gpss]{:target="_blank"}[^2]
 * Higher *perceived speed* thanks to content pre-fetching
 * [Syntax highlighting](#syntax-highlighting), powered by [Rouge]
 * [LaTeX math blocks](#latex-math-blocks), powered by [KaTeX]
@@ -64,7 +64,7 @@ Both versions include *all* of these features:
 * Gist support via `jekyll-gist` (optional)
 
 ### Syntax Highlighting
-Syntax highlighting powered by [Rouge].
+Syntax highlighting powered by [Rouge]{:target="_blank"}.
 
 ~~~ruby
 # Ruby code with syntax highlighting
@@ -74,7 +74,7 @@ end
 ~~~
 
 ### LaTeX Math Blocks
-Write formulas in familiar LaTeX syntax. Powered by [KaTeX].
+Write formulas in familiar LaTeX syntax. Powered by [KaTeX]{:target="_blank"}.
 
 $$
 \begin{aligned}
@@ -98,18 +98,18 @@ $$
 ### Free Version
 The *free version* features the design and tech of **Hydejack**, but only supports basic blogging.
 
-[Download the Starter Kit][kit] or [Fork the Starter Kit on GitHub][git]
+[Download the Starter Kit][kit]{:target="_blank"} or [Fork the Starter Kit on GitHub][git]{:target="_blank"}
 
 ### PRO Version
 The *PRO version* aims to be the complete package for professionals on the web.
-It includes layouts for your [portfolio],
-your [resume] (with support for [JSON Resume](https://jsonresume.org/)),
-a [welcome] page to introduce yourself to visitors,
-built-in support for [Tinyletter], and from element styles so you can build arbitrary contact forms.
+It includes layouts for your [portfolio]{:target="_blank"},
+your [resume]{:target="_blank"} (with support for [JSON Resume](https://jsonresume.org/)){:target="_blank"},
+a [welcome]{:target="_blank"} page to introduce yourself to visitors,
+built-in support for [Tinyletter]{:target="_blank"}, and from element styles so you can build arbitrary contact forms.
 
-[Buy Now - $29][buy] [^1]
+[Buy Now - $29][buy]{:target="_blank"} [^1]
 
-[^1]: Transactions secured by [Stripe](https://stripe.com). Downloads handled by [Simple Goods](https://simplegoods.co/).  
+[^1]: Transactions secured by [Stripe](https://stripe.com){:target="_blank"}. Downloads handled by [Simple Goods](https://simplegoods.co/){:target="_blank"}.  
 [^2]: Actual page load speed depends on your hosting provider, resolution of embedded images and usage of 3rd party plugins.  
 
 [blog]: https://qwtel.com/hydejack/blog/

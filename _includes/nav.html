@@ -10,6 +10,7 @@
           {% if forloop.first %}id="_navigation"{% endif %}
 
           {% if node.external %}
+          target="_blank"
           href="{{ node.external }}"
           {% else %}
           href="{{ node.url | relative_url }}"
